@@ -58,7 +58,7 @@ def lambda_handler(event, context):
                     "produto_id": produto_id,
                     "nome": nome,
                     "descricao": descricao,
-                    "preco": preco,
+                    "preco": float(preco),
                     "quantidade": quantidade
                 })
         
@@ -68,7 +68,7 @@ def lambda_handler(event, context):
         "statusCode": 200,
         "body": json.dumps({
             "carrinho": carrinho,
-            "total": total
+            "total": float(total)
         })
     }
     return response
