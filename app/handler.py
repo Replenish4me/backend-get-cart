@@ -39,7 +39,7 @@ def lambda_handler(event, context):
             usuario_id = result[0]
             
             # Leitura dos produtos no carrinho do usuário
-            sql = "SELECT CarrinhoCompras.id, Produtos.nome, Produtos.descricao, Produtos.preco, CarrinhoCompras.quantidade FROM CarrinhoCompras INNER JOIN Produtos ON CarrinhoCompras.produto_id = Produtos.id WHERE CarrinhoCompras.usuario_id = %s"
+            sql = "SELECT Produtos.id, Produtos.nome, Produtos.descricao, Produtos.preco, CarrinhoCompras.quantidade FROM CarrinhoCompras INNER JOIN Produtos ON CarrinhoCompras.produto_id = Produtos.id WHERE CarrinhoCompras.usuario_id = %s"
             cursor.execute(sql, (usuario_id,))
             result = cursor.fetchall()
             
